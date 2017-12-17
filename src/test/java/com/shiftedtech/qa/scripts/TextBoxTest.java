@@ -8,6 +8,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -18,8 +19,8 @@ public class TextBoxTest {
     WebDriver driver;
     @After
     public void tearDown() {
-//        driver.close();
-//        driver.quit();
+        driver.close();
+        driver.quit();
     }
     @Before
     public void setUp() {
