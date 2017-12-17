@@ -7,6 +7,25 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * ./
+ .//
+ //input[@id = 'radio-group-1']
+ /html/body/div/div/div/div/div/div/form
+ /div/div/label/input[@id = 'radio-group-1']
+
+ //form/div[1]/button[@class = 'btn btn-primary clicked']
+
+ text()
+
+ //*[text() = 'Primary']
+ //*[@id ='basic-button-01' and text() = 'Primary']
+
+ contains()
+ //*[@id='basic-button-01' and contains(text(),  'imary')]
+
+ //*[ @id = 'basic-button-01']/../preceding-sibling::label
+ */
 public class BaseClass {
 
     protected WebDriver driver = null;
