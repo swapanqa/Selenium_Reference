@@ -1,6 +1,7 @@
 package com.shiftedtech.qa.scripts;
 
 import com.shiftedtech.qa.common.BaseClass;
+import com.shiftedtech.qa.utils.ElementUtils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,10 +13,12 @@ import java.util.List;
 
 public class DropDownButtonTest extends BaseClass{
 
+    private ElementUtils elementUtils;
     @Override
     public void setUp() {
         super.setUp();
         driver.navigate().to("http://shifttest.shiftedtech.com/components/dropdown_menu");
+        elementUtils = new ElementUtils(driver);
     }
 
     @Test
@@ -52,8 +55,7 @@ public class DropDownButtonTest extends BaseClass{
     }
     @Test
     public void multiSelectDropdownTest1() {
-        JavascriptExecutor jse = (JavascriptExecutor)driver;
-        jse.executeScript("window.scrollBy(0,250)", "");
+        elementUtils.scrollByPixel(350);
         driver.findElement(By.xpath("//*[@class='form-group']//button[@title='Nothing selected']/span[1]")).click();
         try {
             Thread.sleep(2000);
@@ -61,16 +63,20 @@ public class DropDownButtonTest extends BaseClass{
             e.printStackTrace();
         }
         List<WebElement> elements = driver.findElements(By.xpath("//*[@class='form-group']//button[@title='Nothing selected']/following-sibling::div//li/a/span[@class = 'text']"));
-        selectDropDown(elements, "Mustard", "Ketchup");
+        selectDropDown(elements, "Mustard", "Ketchup", "Relish");
     }
 
+    /**
+     * select menu item from modern bootstrap dropdown
+     * @param elements
+     * @param text
+     */
     private void selectDropDown(List<WebElement> elements, String... text) {
-        List<String> elementTexts = new ArrayList<String>();
+        List<String> elementTexts = new ArrayList<>();
         int j = 0;
         for(int i = 0; i < elements.size(); i++) {
             String s = elements.get(i).getText();
             elementTexts.add(s);
-            System.out.println(elementTexts);
             if(j == text.length) {
                 break;
             }else {
@@ -79,6 +85,14 @@ public class DropDownButtonTest extends BaseClass{
                     j++;
                 }
             }
+//            if(j == text.length) {
+//                break;
+//            }else {
+//                if (text[j].equals(elements.get(i).getText())) {
+//                    elements.get(i).click();
+//                    j++;
+//                }
+//            }
         }
     }
 
