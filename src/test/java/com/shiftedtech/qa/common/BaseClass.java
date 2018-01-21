@@ -1,9 +1,13 @@
 package com.shiftedtech.qa.common;
 
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -34,17 +38,23 @@ public class BaseClass {
 //        driver.close();
 //        driver.quit();
     }
+
     @Before
     public void setUp() {
         // FOR WINDOWS USERS
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/driver/chromedriver.exe");
         // FOR MAC USERS
         // System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/driver/chromedriver");
+        //System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/driver/geckodriver.exe");
+
         driver = new ChromeDriver();
-        driver.manage().deleteAllCookies();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-//        driver.get("http://shifttest.shiftedtech.com/components/text_box");
+       // FirefoxDriverManager.firefoxdriver().setup();
+       // driver = new FirefoxDriver();
+
+       // driver.manage().deleteAllCookies();
+        //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//        driver.manage().window().maximize();
+        driver.get("http://shifttest.shiftedtech.com/components/text_box");
         //driver.navigate().to("http://shifttest.shiftedtech.com/components/text_box");
 //        try {
 //            driver.navigate().to(new URL("http://shifttest.shiftedtech.com/components/text_box"));
