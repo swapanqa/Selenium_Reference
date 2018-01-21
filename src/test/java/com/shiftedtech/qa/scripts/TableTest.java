@@ -76,8 +76,8 @@ public class TableTest extends BaseClass{
     @Test
     public void test5() {
         WebElement table = driver.findElement(By.xpath(".//*[@id='html-table']/table"));
-        getTableCellByColumnName(table, 2, "Email");
-        System.out.println();
+        String tmp = getTableCellByColumnName(table, 2, "Email").getText();
+        System.out.println(tmp);
     }
 
     private WebElement getTableCellByIndex(WebElement table, int rowIndex, int columnIndex) {
@@ -90,7 +90,6 @@ public class TableTest extends BaseClass{
             String cellText = tableReturnCell.getText();
             System.out.println(cellText);
         }
-        System.out.println(tableReturnCell);
         return tableReturnCell;
     }
 
@@ -114,7 +113,6 @@ public class TableTest extends BaseClass{
     }
 
     private WebElement getTableCellByColumnName(WebElement table, int rowIndex, String columnName) {
-        List<WebElement> rows = table.findElements(By.xpath(".//tbody/tr"));
         List<WebElement> columnHeaders = table.findElements(By.tagName("th"));
         HashMap<String, Integer> columnIndex = new HashMap<>();
         for(int i = 0; i < columnHeaders.size(); i++){
