@@ -1,5 +1,6 @@
 package com.shiftedtech.qa.common;
 
+import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -33,13 +34,23 @@ import java.util.concurrent.TimeUnit;
 public class BaseClass {
 
     protected WebDriver driver = null;
+
+
+    @Before
+    public void setUp(){
+        ChromeDriverManager.getInstance().arch32().setup();
+        driver =new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+    }
+
     @After
     public void tearDown() {
 //        driver.close();
 //        driver.quit();
     }
 
-    @Before
+   /* @Before
     public void setUp() {
         // FOR WINDOWS USERS
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/driver/chromedriver.exe");
@@ -61,5 +72,5 @@ public class BaseClass {
 //        } catch (MalformedURLException e) {
 //            e.printStackTrace();
 //        }
-    }
+    }*/
 }
