@@ -1,6 +1,7 @@
 package com.shiftedtech.qa.common;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.DriverManagerType;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -38,7 +39,7 @@ public class BaseClass {
 
     @Before
     public void setUp(){
-        ChromeDriverManager.getInstance().arch32().setup();
+        WebDriverManager.chromedriver().arch32().setup();
         driver =new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();

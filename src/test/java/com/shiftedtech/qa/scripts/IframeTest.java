@@ -2,6 +2,7 @@ package com.shiftedtech.qa.scripts;
 
 import com.shiftedtech.qa.common.BaseClass;
 import com.shiftedtech.qa.utils.ElementUtils;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
