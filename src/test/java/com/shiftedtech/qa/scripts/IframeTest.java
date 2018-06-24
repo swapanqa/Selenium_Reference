@@ -16,14 +16,14 @@ public class IframeTest extends BaseClass{
     @Override
     public void setUp() {
         super.setUp();
-        driver.navigate().to("http://shifttest.shiftedtech.com/components/iframe");
+        driver.navigate().to("http://toolsqa.com/iframe-practice-page/");
         elementUtils = new ElementUtils(driver);
     }
 
     @Test
     public void selectByNameTest() {
-        driver.switchTo().frame("iframe-01");
-        driver.findElement(By.xpath("//a[contains(@href, '/components/text_box')]")).click();
+        driver.switchTo().frame("iframe1");
+        driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys("iivaan");
         driver.switchTo().defaultContent();
     }
 
