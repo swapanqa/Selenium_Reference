@@ -18,7 +18,7 @@ public class PopUpTest extends BaseClass{
         //driver.navigate().to("http://www.saksoff5th.com/Entry.jsp");
     }
 
-    @Test
+  //  @Test
     public void test1(){
         driver.navigate().to("https://www.barnesandnoble.com/");
 
@@ -64,7 +64,7 @@ public class PopUpTest extends BaseClass{
 
     }
 
-    @Test
+  //  @Test
     public void test3(){
 
         driver.navigate().to("https://www.barnesandnoble.com/b/books/_/N-29Z8q8");

@@ -19,8 +19,8 @@ public class TextBoxTest {
     WebDriver driver;
     @After
     public void tearDown() {
-        driver.close();
-        driver.quit();
+       // driver.close();
+       // driver.quit();
     }
     @Before
     public void setUp() {
@@ -46,13 +46,13 @@ public class TextBoxTest {
         element.sendKeys("hello selenium");
     }
 
-    @Test
+   // @Test
     public void test2() {
         WebElement element = driver.findElement(By.id("password"));
         element.sendKeys("hello selenium");
     }
 
-    @Test
+  //  @Test
     public void testDataBox() {
         WebElement element = driver.findElement(By.xpath("//*[@class='form-group']//input[@type='date']"));
         element.sendKeys("12102017");
@@ -75,7 +75,7 @@ public class TextBoxTest {
         element.sendKeys(Keys.TAB);
     }
 
-    @Test
+  //  @Test
     public void testDataTimeBox() {
         WebElement element = driver.findElement(By.xpath("//*[@class='form-group']//input[@type='datetime-local']"));
         element.sendKeys("12102017\t1200PM");
